@@ -1,0 +1,33 @@
+$ node runtime.js restults:
+s= seconds
+ms= millisecond .0001 seconds
+μs= microseconds .000001 seconds
+
+Results for the tinyArray
+insert 82.9 μs
+append 7.1187 ms
+μs
+Results for the smallArray
+insert 79.5 μs
+append 209.9 
+
+Results for the mediumArray
+insert 473.8 μs
+append 493.2 μs
+
+Results for the largeArray
+insert 14.9172 ms
+append 1.4493 ms
+
+Results for the extraLargeArray
+insert 1.8554774 s
+append 8.6266 ms
+
+The results for insert do not scale as well as the results for append. In the beginning insert runs faster but as the array increases in size the append function becomes the faster of the two.
+
+The doublerAppend function uses the .push() method.
+The doublerInsert function uses the .unshift() method.
+while both are array methods, the append or .push() method will scale better because it has a timescale of O(1). The insert or .unshift() method has to loop through the entire array before completed which gives it a timescale of O(n2).
+
+The .push() simply adds a new item to the end of the array. I think this makes it faster overall because it manipulates less data.
+The .unshift() adds an item to the front of the array so it must also shift each previous item up one index which means it has to work through an entire array.
